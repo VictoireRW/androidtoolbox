@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">AndroidToolBox</string>
+    <string name="login_validate">VALIDER</string>
+    <string name="home_bonjour">Bonjour</string>
+    <string name="login_connexion">Connexion</string>
+    <string name="cycle_title">cycle de vie de l\'activité</string>
+    <string name="logout_validate">logout</string>
+    <string name="Name">Name</string>
+    <string name="Name_Form"></string>
+    <string name="First_Name">First Name</string>
+    <string name="FirstName_Form"></string>
+    <string name="Birth_Date">Date</string>
+    <string name="BirthDate_Form"></string>
+    <string name="Form">FORMULAIRE</string>
+    <string name="ReadForm">Read</string>
+    <string name="Send_Form">Send</string>
+    <string name="BirthDate_form">birthDate</string>
+    <string name="acces">Accès aux informations Android</string>
+    <string name="mes_contacts">Contacts de Victoire</string>
+</resources>
