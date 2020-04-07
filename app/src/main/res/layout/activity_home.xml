@@ -7,16 +7,14 @@
     tools:context=".HomeActivity">
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/SauvButton"
         android:layout_width="77dp"
         android:layout_height="73dp"
-        android:background="#FF0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.703"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.737"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/HomeSave"
+        app:layout_constraintStart_toStartOf="@+id/HomeSave"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
         app:srcCompat="@android:drawable/stat_sys_download" />
 
     <TextView
@@ -25,10 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="WebServices"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.702"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+        app:layout_constraintEnd_toEndOf="@+id/SauvButton"
+        app:layout_constraintStart_toStartOf="@+id/SauvButton"
+        app:layout_constraintTop_toBottomOf="@+id/SauvButton" />
 
     <TextView
         android:id="@+id/textView7"
@@ -36,48 +33,39 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Permission"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.244"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/PermissionsButton"
+        app:layout_constraintStart_toStartOf="@+id/PermissionsButton"
         app:layout_constraintTop_toBottomOf="@+id/PermissionsButton" />
 
     <ImageButton
         android:id="@+id/PermissionsButton"
         android:layout_width="77dp"
         android:layout_height="73dp"
-        android:background="#FF0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.239"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.737"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/homeCycle"
+        app:layout_constraintStart_toStartOf="@+id/homeCycle"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
         app:srcCompat="@android:drawable/ic_menu_call" />
 
     <ImageButton
         android:id="@+id/HomeSave"
         android:layout_width="77dp"
         android:layout_height="73dp"
-        android:background="#FF0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.715"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:srcCompat="@android:drawable/ic_menu_save" />
 
     <ImageButton
         android:id="@+id/homeCycle"
         android:layout_width="77dp"
         android:layout_height="73dp"
-        android:background="#FF0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.239"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:srcCompat="@android:drawable/stat_notify_chat" />
 
     <TextView
@@ -86,10 +74,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Sauvegarde"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.709"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeCycle" />
+        app:layout_constraintEnd_toEndOf="@+id/HomeSave"
+        app:layout_constraintStart_toStartOf="@+id/HomeSave"
+        app:layout_constraintTop_toBottomOf="@+id/HomeSave" />
 
     <TextView
         android:id="@+id/textView8"
@@ -97,20 +84,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Cycle de vie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HomeSave" />
+        app:layout_constraintEnd_toEndOf="@+id/homeCycle"
+        app:layout_constraintStart_toStartOf="@+id/homeCycle"
+        app:layout_constraintTop_toBottomOf="@+id/homeCycle" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="207dp"
-        android:layout_height="130dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="226dp"
+        android:layout_height="105dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.096"
         app:srcCompat="@drawable/isen" />
 
     <TextView
@@ -119,12 +103,9 @@
         android:layout_height="wrap_content"
         android:text="@string/home_bonjour"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.331" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/loginButton"
@@ -137,4 +118,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
         app:layout_constraintVertical_bias="0.704" />
+
+    <ImageButton
+        android:id="@+id/BLEbutton"
+        android:layout_width="73dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/PermissionsButton"
+        app:layout_constraintStart_toStartOf="@+id/PermissionsButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/BLE"
+        app:layout_constraintEnd_toEndOf="@+id/BLEbutton"
+        app:layout_constraintStart_toStartOf="@+id/BLEbutton"
+        app:layout_constraintTop_toBottomOf="@+id/BLEbutton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

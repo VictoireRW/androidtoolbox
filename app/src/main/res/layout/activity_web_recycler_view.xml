@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contact"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".WebRecyclerView"><![CDATA[
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/webServicesRecycler"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    ]]>
+
+    <ImageView
+        android:id="@+id/pictWeb"
+        android:layout_width="91dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@string/imageWeb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/mailWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/emailWeb"
+        app:layout_constraintStart_toStartOf="@+id/addressWeb"
+        app:layout_constraintTop_toBottomOf="@+id/addressWeb" />
+
+    <TextView
+        android:id="@+id/nameWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/pictWeb"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addressWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/addressWeb"
+        app:layout_constraintStart_toStartOf="@+id/nameWeb"
+        app:layout_constraintTop_toBottomOf="@+id/nameWeb" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,7 @@ import java.util.*
 
 
 class FormActivity : AppCompatActivity() {
-
+    var age = 0
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,15 +31,15 @@ class FormActivity : AppCompatActivity() {
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
                 val sdf = SimpleDateFormat("dd/MM/yyyy")
-                /*dateButton.text = sdf.format(cal.time)
-                var age = 0
+                dateButton.text = sdf.format(cal.time)
+
 
                 val today = Calendar.getInstance()
                 dateButton.text = sdf.format(cal.time)
                 age = today.get(Calendar.YEAR) - cal.get(Calendar.YEAR)
 
                 if (today.get(Calendar.DAY_OF_YEAR) < cal.get(Calendar.DAY_OF_YEAR))
-                    age--*/
+                    age--
 
         }
 
@@ -79,7 +79,7 @@ class FormActivity : AppCompatActivity() {
 
 
             val alertDialogBuilder = AlertDialog.Builder(this)
-            alertDialogBuilder.setMessage("Nom "+json.get("name").toString()+"\n" + "Prénom "+json.get("firstname").toString() + "\n" +"Date de Naissance "+json.get("date").toString()+"\n")
+            alertDialogBuilder.setMessage("Nom "+json.get("name").toString()+"\n" + "Prénom "+json.get("firstname").toString() + "\n" +"Date de Naissance "+json.get("date").toString()+"\n"+ "Age : $age ans" +"\n")
                 .setNegativeButton("Cancel", DialogInterface.OnClickListener {
                         dialog, id -> dialog.cancel()
                 })

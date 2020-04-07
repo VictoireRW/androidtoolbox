@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsWS">
+
+    <TextView
+        android:id="@+id/addressDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/pictDetails"
+        app:layout_constraintTop_toBottomOf="@+id/pictDetails" />
+
+    <ImageView
+        android:id="@+id/pictDetails"
+        android:layout_width="106dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="96dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/nameDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/detailsName"
+        app:layout_constraintStart_toEndOf="@+id/pictDetails"
+        app:layout_constraintTop_toTopOf="@+id/pictDetails" />
+
+    <TextView
+        android:id="@+id/mailDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/mailDetails"
+        app:layout_constraintStart_toStartOf="@+id/nameDetails"
+        app:layout_constraintTop_toBottomOf="@+id/nameDetails" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

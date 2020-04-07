@@ -17,6 +17,10 @@ class HomeActivity : AppCompatActivity() {
         val sharedPref: SharedPreferences = getSharedPreferences("key", PRIVATE_MODE)
         val editor: SharedPreferences.Editor = sharedPref.edit()
 
+        SauvButton.setOnClickListener {
+            val intent = Intent(this, WebservicesActivity::class.java) //f
+            startActivity(intent)
+        }
         homeCycle.setOnClickListener {
             val intent = Intent(this, CycleActivity::class.java) //f
             startActivity(intent)
@@ -33,6 +37,10 @@ class HomeActivity : AppCompatActivity() {
         }
         PermissionsButton.setOnClickListener {
             val intent = Intent(this, PermissionsActivity::class.java) //f
+            startActivity(intent)
+        }
+        BLEbutton.setOnClickListener {
+            val intent = Intent(this, BLEScanActivity::class.java) //f
             startActivity(intent)
         }
     }

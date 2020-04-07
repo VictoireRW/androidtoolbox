@@ -2,9 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fr.isen.victoire.androidtoolbox">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-feature android:name="android.hardware.camera"
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
         android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,9 +20,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PermissionsActivity"></activity>
-        <activity android:name=".FormActivity" />
-        <activity android:name=".CycleActivity" />
+        <activity android:name=".BLEDeviceAdapter"></activity>
+        <activity android:name=".BLEDeviceActivity" />
+        <activity android:name=".BLEScanRV" />
+        <activity android:name=".BLEScanActivity" />
+        <activity android:name=".DetailsWS" />
+        <activity android:name=".WebRecyclerView" />
+        <activity
+            android:name=".WebservicesActivity"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".PermissionsActivity"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".FormActivity"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".CycleActivity"
+            android:parentActivityName=".HomeActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -24,8 +47,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
 
 </manifest>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/deviceLayout"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    tools:context=".BLEScanRV">
+
+    <TextView
+        android:id="@+id/dRSSI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:background="#FFFFFF"
+        android:text="@string/device_rssi"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/device_name"
+        app:layout_constraintBottom_toTopOf="@+id/dAddress"
+        app:layout_constraintStart_toStartOf="@+id/dAddress"
+        app:layout_constraintTop_toTopOf="@+id/dRSSI"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/dAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/device_MAC"
+        app:layout_constraintBottom_toBottomOf="@+id/dRSSI"
+        app:layout_constraintStart_toEndOf="@+id/dRSSI" />
+</androidx.constraintlayout.widget.ConstraintLayout>

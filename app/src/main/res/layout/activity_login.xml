@@ -10,7 +10,7 @@
         android:id="@+id/loginValidate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FF0000"
+        android:background="@color/colorPrimary"
         android:text="@string/login_validate"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Password"
-        android:textColor="#FF0000"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/loginPassword"
         app:layout_constraintStart_toStartOf="@+id/loginPassword" />
 
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Identifiant"
-        android:textColor="#FF0000"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/loginIdentifiant"
         app:layout_constraintStart_toStartOf="@+id/loginIdentifiant" />
 
