@@ -46,8 +46,6 @@ class BLEScanActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blescan)
-        //bleTextFailed.visibility = View.GONE
-
         devicesRV.adapter =
             BLEScanRV(devices, ::onDeviceClicked)
         devicesRV.layoutManager = LinearLayoutManager(this)

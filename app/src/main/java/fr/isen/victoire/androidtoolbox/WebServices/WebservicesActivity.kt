@@ -1,9 +1,11 @@
 package fr.isen.victoire.androidtoolbox.WebServices
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
@@ -30,10 +32,10 @@ class WebservicesActivity : AppCompatActivity() {
             Response.Listener { response ->
                 val gson = Gson()
                 val user = gson.fromJson(response.toString(), User::class.java)
-                recyclerView.layoutManager = LinearLayoutManager(this)
-                recyclerView.adapter =
+                contactRecycler.layoutManager = LinearLayoutManager(this)
+                contactRecycler.adapter =
                     WebRecyclerView(user, this)
-                recyclerView.visibility = View.VISIBLE
+                contactRecycler.visibility = View.VISIBLE
             },
             Response.ErrorListener {
                 Log.d("TAG", "Error")
@@ -43,7 +45,6 @@ class WebservicesActivity : AppCompatActivity() {
         queue.add(stringRequest)
         //return user
     }
-
 
 }
 

@@ -17,12 +17,15 @@ import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder
 import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder
 import kotlinx.android.synthetic.main.activity_bledevice_adapter.view.*
 import kotlinx.android.synthetic.main.activity_bledevice_rv.view.*
-import fr.isen.victoire.androidtoolbox.R
 
 import android.graphics.Matrix
 import android.widget.EditText
 import android.widget.Toast
 import kotlinx.android.synthetic.main.ble_alertdialog.view.*
+
+
+
+
 
 
 class BLEServiceAdapter(private val serviceList : MutableList<BLEService>,
@@ -63,7 +66,7 @@ class BLEServiceAdapter(private val serviceList : MutableList<BLEService>,
     override fun onCreateGroupViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder =
         ServiceViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.activity_bledevice_rv,
+                fr.isen.victoire.androidtoolbox.R.layout.activity_bledevice_rv,
                 parent,
                 false
             )
@@ -73,7 +76,7 @@ class BLEServiceAdapter(private val serviceList : MutableList<BLEService>,
     override fun onCreateChildViewHolder(parent:ViewGroup, viewType:Int): CharacteristicViewHolder =
         CharacteristicViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.activity_bledevice_adapter,
+                fr.isen.victoire.androidtoolbox.R.layout.activity_bledevice_adapter,
                 parent,
                 false
             )
@@ -82,6 +85,7 @@ class BLEServiceAdapter(private val serviceList : MutableList<BLEService>,
     override fun onBindChildViewHolder(holder: CharacteristicViewHolder, flatPosition : Int, group : ExpandableGroup<*>, childIndex:Int){
        val characteristic : BluetoothGattCharacteristic=(group as BLEService).items[childIndex]
         val uuid = characteristic.uuid
+        var notify = false
         holder.characteristicUUID.text = uuid.toString()
         holder.lire.visibility = View.GONE
         holder.ecrire.visibility = View.GONE
@@ -104,20 +108,33 @@ class BLEServiceAdapter(private val serviceList : MutableList<BLEService>,
         } else {
             holder.valeurBle.text =  "Valeur : null"
         }
+
         holder.lire.setOnClickListener {
             ble?.readCharacteristic(characteristic)
             if(characteristic.value != null){
                 holder.valeurBle.text =  "Valeur : ${String (characteristic.value)}"
+                Log.i("BLEService", "read value : ${String (characteristic.value)}")
             } else {
                 holder.valeurBle.text =  "Valeur : null"
             }
         }
+
+        holder.notifier.setOnClickListener {
+            ble?.setCharacteristicNotification(characteristic, true)
+            notify = characteristic.properties and BluetoothGattCharacteristic.PROPERTY_NOTIFY !== 0
+                holder.valeurBle.text =  "Valeur : ${String (characteristic.value)}"
+            Log.i("BLEService", "notified value : ${String (characteristic.value)}")
+        }
+
         holder.ecrire.setOnClickListener {
             val popup = AlertDialog.Builder(context)
-            val dialogLayout = View.inflate(context, R.layout.ble_alertdialog, null)
+            val dialogLayout = View.inflate(context, fr.isen.victoire.androidtoolbox.R.layout.ble_alertdialog, null)
             popup.setView(dialogLayout)
             popup.setPositiveButton("Valider", DialogInterface.OnClickListener {
-                    _, _ -> ble?.writeCharacteristic(characteristic)
+                    _, _ ->
+                val text = dialogLayout.dialogValue.text.toString()
+                characteristic.setValue(text)
+                ble?.writeCharacteristic(characteristic)
             })
             popup.show()
         }

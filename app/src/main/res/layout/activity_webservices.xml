@@ -8,7 +8,7 @@
     tools:context=".WebServices.WebservicesActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/contactRecycler"
         android:layout_width="369dp"
         android:layout_height="524dp"
         android:layout_marginStart="1dp"

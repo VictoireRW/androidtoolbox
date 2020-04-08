@@ -72,6 +72,7 @@ class BLEDeviceActivity : AppCompatActivity() {
                         )
                     }?.toMutableList() ?: arrayListOf(), gatt, this@BLEDeviceActivity)
                 detailsDeviceRV.layoutManager = LinearLayoutManager(this@BLEDeviceActivity)
+
             }
         }
 
