@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".BLEDeviceAdapter">
+    android:background="@color/colorBackGrownd"
+    tools:context=".BLEDevice.BLEDeviceAdapter">
 
     <TextView
         android:id="@+id/title"
@@ -42,7 +43,6 @@
         android:id="@+id/bNotify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="12dp"
         android:text="@string/Notify_button"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,10 +52,11 @@
         android:id="@+id/bRead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
         android:text="@string/Read_button"
         app:layout_constraintBottom_toBottomOf="@+id/bNotify"
-        app:layout_constraintStart_toEndOf="@+id/bNotify" />
+        app:layout_constraintEnd_toEndOf="@+id/bWrite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bNotify" />
 
     <Button
         android:id="@+id/bWrite"
@@ -64,5 +65,14 @@
         android:text="@string/Write_button"
         app:layout_constraintBottom_toBottomOf="@+id/bRead"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bRead" />
+        app:layout_constraintTop_toTopOf="@+id/bRead" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bRead" />
 </androidx.constraintlayout.widget.ConstraintLayout>
