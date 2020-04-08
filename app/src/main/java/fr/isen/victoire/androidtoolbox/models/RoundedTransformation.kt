@@ -1,4 +1,4 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.models
 
 import android.graphics.Bitmap
 import android.graphics.BitmapShader

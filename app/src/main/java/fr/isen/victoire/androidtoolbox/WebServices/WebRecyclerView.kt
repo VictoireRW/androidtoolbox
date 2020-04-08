@@ -1,4 +1,4 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.WebServices
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import fr.isen.victoire.androidtoolbox.R
+import fr.isen.victoire.androidtoolbox.models.RoundedTransformation
+import fr.isen.victoire.androidtoolbox.models.User
 import kotlinx.android.synthetic.main.activity_web_recycler_view.view.*
 
 
@@ -21,7 +24,11 @@ class WebRecyclerView(private val users: User, val context: Context) :
             val intent = Intent(this, DetailsWS::class.java) //f
             startActivity(intent)
         }*/
-        return WebHolder(users, view, context)
+        return WebHolder(
+            users,
+            view,
+            context
+        )
     }
 
     override fun getItemCount(): Int {

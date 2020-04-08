@@ -12,7 +12,6 @@ import android.widget.DatePicker
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 import java.util.*
 
 
@@ -39,7 +38,7 @@ class FormActivity : AppCompatActivity() {
                 age = today.get(Calendar.YEAR) - cal.get(Calendar.YEAR)
 
                 if (today.get(Calendar.DAY_OF_YEAR) < cal.get(Calendar.DAY_OF_YEAR))
-                    age--
+                age=0
 
         }
 
@@ -66,18 +65,10 @@ class FormActivity : AppCompatActivity() {
             showDatePicker(dateSetListener)
         }
 
-
-
         ReadFile.setOnClickListener {
-
-
-
 
             val result = File(cacheDir.absolutePath + "form.json").readText(Charsets.UTF_8)
             val json = JSONObject(result)
-            /*val age = ChronoUnit.YEARS.between(formatted, json.get("date").toString())*/
-
-
             val alertDialogBuilder = AlertDialog.Builder(this)
             alertDialogBuilder.setMessage("Nom "+json.get("name").toString()+"\n" + "Prénom "+json.get("firstname").toString() + "\n" +"Date de Naissance "+json.get("date").toString()+"\n"+ "Age : $age ans" +"\n")
                 .setNegativeButton("Cancel", DialogInterface.OnClickListener {

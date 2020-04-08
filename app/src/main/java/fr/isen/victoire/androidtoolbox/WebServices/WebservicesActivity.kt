@@ -1,4 +1,4 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.WebServices
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +10,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
+import fr.isen.victoire.androidtoolbox.R
+import fr.isen.victoire.androidtoolbox.models.User
 import kotlinx.android.synthetic.main.activity_webservices.*
 
 
@@ -29,7 +31,8 @@ class WebservicesActivity : AppCompatActivity() {
                 val gson = Gson()
                 val user = gson.fromJson(response.toString(), User::class.java)
                 recyclerView.layoutManager = LinearLayoutManager(this)
-                recyclerView.adapter = WebRecyclerView(user,this)
+                recyclerView.adapter =
+                    WebRecyclerView(user, this)
                 recyclerView.visibility = View.VISIBLE
             },
             Response.ErrorListener {

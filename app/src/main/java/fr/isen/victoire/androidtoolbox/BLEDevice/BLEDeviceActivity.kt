@@ -1,10 +1,13 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.BLEDevice
 
 import android.bluetooth.*
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import fr.isen.victoire.androidtoolbox.BLEService.BLEService
+import fr.isen.victoire.androidtoolbox.BLEService.BLEServiceAdapter
+import fr.isen.victoire.androidtoolbox.R
 import kotlinx.android.synthetic.main.activity_bledevice.*
 
 
@@ -22,7 +25,7 @@ class BLEDeviceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bledevice)
         val device : BluetoothDevice = intent.getParcelableExtra("ble_device")
-        detailsDeviceName.text = device?.name
+        detailsDeviceName.text = device.name
         bluetoothGatt = device.connectGatt(this, true, gattCallback)
         Log.i("detailsBLE", "gatt connected")
 
@@ -38,7 +41,8 @@ class BLEDeviceActivity : AppCompatActivity() {
             when (newState) {
                 BluetoothProfile.STATE_CONNECTED -> {
                     runOnUiThread {
-                        detailsDeviceStatus.text = STATE_CONNECTED
+                        detailsDeviceStatus.text =
+                            STATE_CONNECTED
                     }
                     bluetoothGatt?.discoverServices()
                     Log.i(
@@ -48,7 +52,8 @@ class BLEDeviceActivity : AppCompatActivity() {
                 }
                 BluetoothProfile.STATE_DISCONNECTED -> {
                     runOnUiThread {
-                        detailsDeviceStatus.text = STATE_DISCONNECTED
+                        detailsDeviceStatus.text =
+                            STATE_DISCONNECTED
                     }
                     bluetoothGatt?.discoverServices()
                     Log.i(TAG, "deconnecté")
@@ -59,12 +64,13 @@ class BLEDeviceActivity : AppCompatActivity() {
         override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
             super.onServicesDiscovered(gatt, status)
             runOnUiThread {
-                detailsDeviceRV.adapter = BLEDeviceAdapter(gatt?.services?.map {
-                    BLEService(
-                        it.uuid.toString(),
-                        it.characteristics
-                    )
-                }?.toMutableList() ?: arrayListOf(), this@BLEDeviceActivity, gatt)
+                detailsDeviceRV.adapter =
+                    BLEServiceAdapter(gatt?.services?.map {
+                        BLEService(
+                            it.uuid.toString(),
+                            it.characteristics
+                        )
+                    }?.toMutableList() ?: arrayListOf(), gatt, this@BLEDeviceActivity)
                 detailsDeviceRV.layoutManager = LinearLayoutManager(this@BLEDeviceActivity)
             }
         }

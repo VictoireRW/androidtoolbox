@@ -5,7 +5,8 @@
     android:id="@+id/contact"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".WebRecyclerView"><![CDATA[
+    android:background="@color/colorBackGrownd"
+    tools:context=".WebServices.WebRecyclerView"><![CDATA[
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/webServicesRecycler"
     android:layout_width="match_parent"

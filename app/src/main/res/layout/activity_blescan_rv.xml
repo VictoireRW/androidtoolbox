@@ -5,7 +5,8 @@
     android:id="@+id/deviceLayout"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    tools:context=".BLEScanRV">
+    android:background="@color/colorBackGrownd"
+    tools:context=".BLEScan.BLEScanRV">
 
     <TextView
         android:id="@+id/dRSSI"

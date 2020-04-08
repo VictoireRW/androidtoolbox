@@ -1,4 +1,4 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.models
 
 data class Location(
     val city: String,

@@ -1,7 +1,8 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.WebServices
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import fr.isen.victoire.androidtoolbox.R
 
 
 class DetailsWS : AppCompatActivity() {

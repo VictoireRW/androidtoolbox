@@ -1,18 +1,23 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.Permissions
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import fr.isen.victoire.androidtoolbox.R
 import kotlinx.android.synthetic.main.activity_permissions_cell.view.*
 
-class  ContactAdapter(val contact : List<String>) : RecyclerView.Adapter< ContactAdapter.ContactViewHolder>() {
+class  ContactAdapter(val contact : List<String>) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder =
         ContactViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.activity_permissions_cell, parent, false)
+                .inflate(
+                    R.layout.activity_permissions_cell,
+                    parent,
+                    false
+                )
             //permet de cree le Layout et le Viewholder associé
             //Viewholder va gerer la vue.
         )

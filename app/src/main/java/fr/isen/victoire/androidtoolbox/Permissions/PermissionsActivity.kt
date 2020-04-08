@@ -1,4 +1,4 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.Permissions
 
 import android.Manifest
 import android.app.Activity
@@ -15,6 +15,7 @@ import android.provider.ContactsContract
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import fr.isen.victoire.androidtoolbox.R
 import kotlinx.android.synthetic.main.activity_permissions.*
 
 class PermissionsActivity : AppCompatActivity() {
@@ -40,13 +41,17 @@ class PermissionsActivity : AppCompatActivity() {
         //Intent to pick image
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        startActivityForResult(intent, IMAGE_PICK_CODE)
+        startActivityForResult(intent,
+            IMAGE_PICK_CODE
+        )
     }
 
     private fun takePictureIntent() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(packageManager)?.also {
-                startActivityForResult(takePictureIntent, PERMISSION_CODE)
+                startActivityForResult(takePictureIntent,
+                    PERMISSION_CODE
+                )
             }
         }
     }
@@ -91,7 +96,8 @@ class PermissionsActivity : AppCompatActivity() {
             //callback onRequestPermissionsResult
         } else {
             getContacts()
-            contactRecycler.adapter = ContactAdapter(contact.sorted())  //optimiser au max l'affichage des cell contactRecycler: id recycleView
+            contactRecycler.adapter =
+                ContactAdapter(contact.sorted())  //optimiser au max l'affichage des cell contactRecycler: id recycleView
             contactRecycler.layoutManager = LinearLayoutManager(this)
         }
     }

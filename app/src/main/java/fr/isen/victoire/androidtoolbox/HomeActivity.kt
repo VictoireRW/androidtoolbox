@@ -4,8 +4,10 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import fr.isen.victoire.androidtoolbox.BLEScan.BLEScanActivity
+import fr.isen.victoire.androidtoolbox.Permissions.PermissionsActivity
+import fr.isen.victoire.androidtoolbox.WebServices.WebservicesActivity
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_login.*
 
 class HomeActivity : AppCompatActivity() {
 

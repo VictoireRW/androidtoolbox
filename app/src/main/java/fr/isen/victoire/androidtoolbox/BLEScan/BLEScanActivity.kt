@@ -1,4 +1,4 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.BLEScan
 
 import android.app.Activity
 import android.bluetooth.BluetoothAdapter
@@ -13,10 +13,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import fr.isen.victoire.androidtoolbox.BLEDevice.BLEDeviceActivity
+import fr.isen.victoire.androidtoolbox.R
 import kotlinx.android.synthetic.main.activity_blescan.*
 
 class BLEScanActivity : AppCompatActivity() {
@@ -47,10 +48,12 @@ class BLEScanActivity : AppCompatActivity() {
         setContentView(R.layout.activity_blescan)
         //bleTextFailed.visibility = View.GONE
 
-        devicesRV.adapter = BLEScanRV(devices, ::onDeviceClicked)
+        devicesRV.adapter =
+            BLEScanRV(devices, ::onDeviceClicked)
         devicesRV.layoutManager = LinearLayoutManager(this)
             playButton.setOnClickListener() {
-
+                playButton.visibility = View.GONE
+                pauseButton.visibility = View.VISIBLE
 
                 when {
                     isBLEEnable -> {
@@ -60,7 +63,9 @@ class BLEScanActivity : AppCompatActivity() {
                     bluetoothAdapter != null -> {
                         // demande d'activation bluetooth
                         val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
-                        startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
+                        startActivityForResult(enableBtIntent,
+                            REQUEST_ENABLE_BT
+                        )
                     }
                     else -> {
                         // device pas compatible BLE
@@ -70,6 +75,7 @@ class BLEScanActivity : AppCompatActivity() {
                 }
             }
         pauseButton.setOnClickListener() {
+            pauseButton.visibility = View.GONE
             playButton.visibility = View.VISIBLE
             progressBar.visibility = View.GONE
             divider.visibility = View.VISIBLE
@@ -95,7 +101,8 @@ class BLEScanActivity : AppCompatActivity() {
     }
 
     private fun initBLEScan() {
-        adapter = BLEScanRV(arrayListOf(), ::onDeviceClicked)
+        adapter =
+            BLEScanRV(arrayListOf(), ::onDeviceClicked)
         devicesRV.adapter = adapter
         devicesRV.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
 

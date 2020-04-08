@@ -20,17 +20,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BLEDeviceAdapter"></activity>
-        <activity android:name=".BLEDeviceActivity" />
-        <activity android:name=".BLEScanRV" />
-        <activity android:name=".BLEScanActivity" />
-        <activity android:name=".DetailsWS" />
-        <activity android:name=".WebRecyclerView" />
+        <activity android:name=".BLEDevice.BLEDeviceAdapter"></activity>
+        <activity android:name=".BLEDevice.BLEDeviceActivity" />
+        <activity android:name=".BLEScan.BLEScanRV" />
+        <activity android:name=".BLEScan.BLEScanActivity" />
+        <activity android:name=".WebServices.DetailsWS" />
+        <activity android:name=".WebServices.WebRecyclerView" />
         <activity
-            android:name=".WebservicesActivity"
+            android:name=".WebServices.WebservicesActivity"
             android:parentActivityName=".HomeActivity" />
         <activity
-            android:name=".PermissionsActivity"
+            android:name=".Permissions.PermissionsActivity"
             android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".FormActivity"

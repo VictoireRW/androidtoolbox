@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BLEScanActivity">
+    android:background="@color/colorBackGrownd"
+    tools:context=".BLEScan.BLEScanActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/devicesRV"
-        android:layout_width="459dp"
-        android:layout_height="384dp"
+        android:layout_width="371dp"
+        android:layout_height="408dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.984" />
 
     <TextView
         android:id="@+id/scanText"
@@ -19,12 +23,12 @@
         android:layout_height="wrap_content"
         android:text="@string/scan_text"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/devicesRV"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.265"
+        app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
+        app:layout_constraintVertical_bias="0.102" />
 
     <View
         android:id="@+id/divider"
@@ -45,7 +49,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.996" />
 
     <ImageButton
         android:id="@+id/pauseButton"
@@ -54,17 +61,23 @@
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="@+id/scanText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/scanText"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="@+id/scanText"
         app:layout_constraintTop_toTopOf="@+id/scanText"
+        app:layout_constraintVertical_bias="0.555"
         app:srcCompat="@android:drawable/ic_media_pause" />
 
     <ImageButton
         android:id="@+id/playButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:background="@color/colorPrimary"
-        app:layout_constraintStart_toStartOf="@+id/pauseButton"
-        app:layout_constraintTop_toTopOf="@+id/pauseButton"
+        app:layout_constraintBottom_toBottomOf="@+id/scanText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="@+id/scanText"
+        app:layout_constraintTop_toTopOf="@+id/scanText"
+        app:layout_constraintVertical_bias="0.555"
         app:srcCompat="@android:drawable/ic_media_play" />
 
     <TextView

@@ -1,11 +1,8 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.BLEDevice
 
 import android.app.AlertDialog
-import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothGatt
 import android.bluetooth.BluetoothGattCharacteristic
-import android.bluetooth.BluetoothProfile
-import android.bluetooth.le.ScanResult
 import android.content.Context
 import android.content.DialogInterface
 import android.view.LayoutInflater
@@ -19,6 +16,8 @@ import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder
 import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder
+import fr.isen.victoire.androidtoolbox.BLEService.BLEService
+import fr.isen.victoire.androidtoolbox.R
 import kotlinx.android.synthetic.main.activity_bledevice_adapter.view.*
 import kotlinx.android.synthetic.main.activity_bledevice_rv.view.*
 import java.util.*
@@ -28,16 +27,15 @@ class BLEDeviceAdapter(
     var context: Context,
     gatt: BluetoothGatt?
 ) :
-    ExpandableRecyclerViewAdapter<BLEDeviceAdapter.ServicesViewHolder, BLEDeviceAdapter.CharacteristicViewHolder>(
-        serviceList
-    ) {
+    ExpandableRecyclerViewAdapter<BLEDeviceAdapter.ServicesViewHolder, BLEDeviceAdapter.CharacteristicViewHolder>(serviceList)
+{
 
     val ble: BluetoothGatt? = gatt
 
     class ServicesViewHolder(detailsView: View) : GroupViewHolder(detailsView) {
         val serviceUuid: TextView = detailsView.characteristicUUID
         val nameService: TextView = detailsView.serviceName
-        val fleche: ImageView = detailsView.fleche
+        val fleche: ImageView = detailsView.flecheBas
 
         override fun expand() {
             animateExpand()
@@ -89,7 +87,11 @@ class BLEDeviceAdapter(
     override fun onCreateGroupViewHolder(parent: ViewGroup, viewType: Int): ServicesViewHolder =
         ServicesViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.activity_bledevice_adapter, parent, false)
+                .inflate(
+                    R.layout.activity_bledevice_rv,
+                    parent,
+                    false
+                )
         )
 
     override fun onCreateChildViewHolder(
@@ -98,15 +100,19 @@ class BLEDeviceAdapter(
     ): CharacteristicViewHolder =
         CharacteristicViewHolder(
             LayoutInflater.from(parent?.context)
-                .inflate(R.layout.activity_bledevice_adapter, parent, false)
+                .inflate(
+                    R.layout.activity_bledevice_adapter,
+                    parent,
+                    false
+                )
         )
 
-    override fun onBindChildViewHolder(
-        holder: CharacteristicViewHolder,
-        flatPosition: Int,
-        group: ExpandableGroup<*>,
-        childIndex: Int
-    ) {
+   override fun onBindChildViewHolder(
+       holder: CharacteristicViewHolder,
+       flatPosition: Int,
+       group: ExpandableGroup<*>,
+       childIndex: Int)
+   {
         val characteristic: BluetoothGattCharacteristic = (group as BLEService).items[childIndex]
 
         holder.buttonRead.visibility = View.GONE
@@ -125,10 +131,10 @@ class BLEDeviceAdapter(
 
 
         val uuid = characteristic.uuid
-        val name = propertyName(uuid)
+        //val name = propertyName(uuid)
 
         holder.characteristicUUID.text = uuid.toString()
-        holder.characteristicName.text = name
+        //holder.characteristicName.text = name
         holder.properties.text = "Proprietés : ${proprieties(characteristic.properties)}"
         ble?.readCharacteristic(characteristic)
         holder.valueBle.text = "Valeur : "
@@ -174,8 +180,8 @@ class BLEDeviceAdapter(
     override fun onBindGroupViewHolder(
         holder: ServicesViewHolder,
         flatPosition: Int,
-        group: ExpandableGroup<*>
-    ) {
+        group: ExpandableGroup<*>)
+    {
         val title = group.title
         var uuidName: String = when (group.title) {
             "00001800-0000-1000-8000-00805f9b34fb" -> "Accès générique"

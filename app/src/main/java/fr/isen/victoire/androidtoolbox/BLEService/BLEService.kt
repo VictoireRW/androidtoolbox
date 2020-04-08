@@ -1,4 +1,4 @@
-package fr.isen.victoire.androidtoolbox
+package fr.isen.victoire.androidtoolbox.BLEService
 
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothProfile

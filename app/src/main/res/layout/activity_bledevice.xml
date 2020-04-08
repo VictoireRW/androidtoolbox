@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BLEDeviceActivity">
+    android:background="@color/colorBackGrownd"
+    tools:context=".BLEDevice.BLEDeviceActivity">
 
     <TextView
         android:id="@+id/detailsDeviceName"
@@ -12,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="@string/device_name"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/device_status"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/detailsDeviceName"
         app:layout_constraintTop_toBottomOf="@+id/detailsDeviceName" />
 
@@ -34,10 +38,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detailsDeviceRV"
-        android:layout_width="409dp"
-        android:layout_height="604dp"
+        android:layout_width="358dp"
+        android:layout_height="602dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/detailsDeviceStatus"
         app:layout_constraintTop_toBottomOf="@+id/divider2"
         app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
