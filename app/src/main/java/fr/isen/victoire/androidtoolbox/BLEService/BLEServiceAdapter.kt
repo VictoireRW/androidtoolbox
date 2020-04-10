@@ -56,6 +56,8 @@ class BLEServiceAdapter(private val serviceList : MutableList<BLEService>,
 
     class CharacteristicViewHolder (itemView:View) : ChildViewHolder(itemView){
         val characteristicUUID : TextView = itemView.UUID
+        val characteristicTitle : TextView = itemView.title
+
         val lire: TextView = itemView.bRead
         val ecrire: TextView = itemView.bWrite
         val notifier: TextView = itemView.bNotify
@@ -100,6 +102,7 @@ class BLEServiceAdapter(private val serviceList : MutableList<BLEService>,
         if (characteristic.properties and BluetoothGattCharacteristic.PROPERTY_NOTIFY != 0) {
             holder.notifier.visibility = View.VISIBLE
         }
+        holder.characteristicTitle.text = "Caractéristique Spécifique"
         holder.characteristicUUID.text = uuid.toString()
         holder.proprietes.text = "Proprietés : ${characteristic.properties}"
         ble?.readCharacteristic(characteristic)

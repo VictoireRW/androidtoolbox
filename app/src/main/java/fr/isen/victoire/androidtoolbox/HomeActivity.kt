@@ -4,9 +4,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.squareup.picasso.Picasso
 import fr.isen.victoire.androidtoolbox.BLEScan.BLEScanActivity
 import fr.isen.victoire.androidtoolbox.Permissions.PermissionsActivity
 import fr.isen.victoire.androidtoolbox.WebServices.WebservicesActivity
+import fr.isen.victoire.androidtoolbox.models.RoundedTransformation
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {

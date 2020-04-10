@@ -13,12 +13,20 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.victoire.androidtoolbox.BLEDevice.BLEDeviceActivity
-import fr.isen.victoire.androidtoolbox.R
 import kotlinx.android.synthetic.main.activity_blescan.*
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.R.attr.name
+import android.R
+
+
 
 class BLEScanActivity : AppCompatActivity() {
 
@@ -45,7 +53,10 @@ class BLEScanActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_blescan)
+        setContentView(fr.isen.victoire.androidtoolbox.R.layout.activity_blescan)
+        val progressBar = findViewById<ProgressBar>(fr.isen.victoire.androidtoolbox.R.id.progressBar)
+        scanText.text = "Lancer un scan"
+
         devicesRV.adapter =
             BLEScanRV(devices, ::onDeviceClicked)
         devicesRV.layoutManager = LinearLayoutManager(this)
@@ -58,6 +69,7 @@ class BLEScanActivity : AppCompatActivity() {
                         initBLEScan()
                         initScan()
                     }
+
                     bluetoothAdapter != null -> {
                         // demande d'activation bluetooth
                         val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
@@ -92,6 +104,10 @@ class BLEScanActivity : AppCompatActivity() {
 
     private fun initScan() {
         progressBar.visibility = View.VISIBLE
+        //val progressBar = findViewById(fr.isen.victoire.androidtoolbox.R.id.progressBar) as ProgressBar
+        progressBar.secondaryProgress = 100
+        progressBar.progress = 10
+        progressBar.max = 100
         divider.visibility = View.GONE
         scanText.text = "Scan en cours"
         handler = Handler()
@@ -110,6 +126,8 @@ class BLEScanActivity : AppCompatActivity() {
         devicesRV.setOnClickListener{
             scanLeDevice(!mScanning)
         }
+
+
 
     }
 
@@ -131,6 +149,10 @@ class BLEScanActivity : AppCompatActivity() {
                 handler.postDelayed({
                     mScanning = false
                     stopScan(leScanCallBack)
+                    scanText.text = "Scan fini"
+                    progressBar.visibility = View.INVISIBLE
+                    divider.visibility = View.VISIBLE
+
                 }, SCAN_PERIOD)
                 mScanning = true
                 startScan(leScanCallBack)
@@ -147,19 +169,5 @@ class BLEScanActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_ENABLE_BT) {
-            if (resultCode == Activity.RESULT_OK) {
-                if (bluetoothAdapter!!.isEnabled) {
-                    Toast.makeText(this, "Bluetooth has been enabled", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Bluetooth has been disabled", Toast.LENGTH_SHORT).show()
-                }
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                Toast.makeText(this, "Bluetooth enabling has been canceled", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-    }
+
 }

@@ -24,7 +24,6 @@ class WebservicesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_webservices)
         val queue = Volley.newRequestQueue(this)
-        //var user = User()
         val stringRequest = JsonObjectRequest(
             Request.Method.GET,
             "https://randomuser.me/api/?inc=name%2Cpicture%2Clocation%2Cemail&noinfo=&nat=fr&format=pretty&results=15",

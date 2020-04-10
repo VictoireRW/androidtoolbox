@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorBackGrownd"
-    tools:context=".BLEDevice.BLEDeviceAdapter">
+    android:background="@color/colorBackGrownd">
 
     <TextView
         android:id="@+id/title"
@@ -43,36 +42,36 @@
         android:id="@+id/bNotify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:background="@color/colorBackGrownd"
         android:text="@string/Notify_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valeur" />
+        app:layout_constraintTop_toBottomOf="@+id/valeur"
+        style="?android:attr/borderlessButtonStyle"/>
 
     <Button
         android:id="@+id/bRead"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorBackGrownd"
         android:text="@string/Read_button"
         app:layout_constraintBottom_toBottomOf="@+id/bNotify"
         app:layout_constraintEnd_toEndOf="@+id/bWrite"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bNotify" />
+        app:layout_constraintTop_toBottomOf="@+id/valeur"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/bWrite"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorBackGrownd"
         android:text="@string/Write_button"
+        android:textColorHighlight="@color/colorBackGrownd"
         app:layout_constraintBottom_toBottomOf="@+id/bRead"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bRead" />
+        app:layout_constraintTop_toBottomOf="@+id/valeur" />
 
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="409dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bRead" />
 </androidx.constraintlayout.widget.ConstraintLayout>

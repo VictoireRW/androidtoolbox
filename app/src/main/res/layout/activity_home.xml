@@ -12,11 +12,11 @@
         android:layout_width="77dp"
         android:layout_height="73dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/round"
         app:layout_constraintEnd_toEndOf="@+id/HomeSave"
         app:layout_constraintStart_toStartOf="@+id/HomeSave"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:srcCompat="@android:drawable/stat_sys_download" />
+        app:srcCompat="@android:drawable/ic_dialog_info"/>
 
     <TextView
         android:id="@+id/textView10"
@@ -43,7 +43,7 @@
         android:layout_width="77dp"
         android:layout_height="73dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/round"
         app:layout_constraintEnd_toEndOf="@+id/homeCycle"
         app:layout_constraintStart_toStartOf="@+id/homeCycle"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
@@ -54,7 +54,7 @@
         android:layout_width="77dp"
         android:layout_height="73dp"
         android:layout_marginTop="16dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/round"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:srcCompat="@android:drawable/ic_menu_save" />
@@ -64,7 +64,7 @@
         android:layout_width="77dp"
         android:layout_height="73dp"
         android:layout_marginTop="16dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/round"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:srcCompat="@android:drawable/stat_notify_chat" />
@@ -125,7 +125,7 @@
         android:layout_width="73dp"
         android:layout_height="74dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/round"
         app:layout_constraintEnd_toEndOf="@+id/PermissionsButton"
         app:layout_constraintStart_toStartOf="@+id/PermissionsButton"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
@@ -140,4 +140,5 @@
         app:layout_constraintEnd_toEndOf="@+id/BLEbutton"
         app:layout_constraintStart_toStartOf="@+id/BLEbutton"
         app:layout_constraintTop_toBottomOf="@+id/BLEbutton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
